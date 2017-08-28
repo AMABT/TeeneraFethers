@@ -1,8 +1,8 @@
 require('mongoose-type-email');
 
 module.exports = function (app) {
-  const mongoseClient = app.get('mongooseClient');
-  const contact = new mongoseClient.Schema({
+  const mongooseClient = app.get('mongooseClient');
+  const contact = new mongooseClient.Schema({
     name: {
       first: {
         type: String,
@@ -14,7 +14,7 @@ module.exports = function (app) {
       }
     },
     email: {
-      type: mongoseClient.SchemaTypes.Email,
+      type: mongooseClient.SchemaTypes.Email,
       required: [true, 'Email is required']
     },
     phone: {
@@ -31,5 +31,5 @@ module.exports = function (app) {
     }
   });
 
-  return mongoseClient.model('contact', contact);
+  return mongooseClient.model('contact', contact);
 };
